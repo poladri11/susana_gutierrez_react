@@ -18,6 +18,9 @@ const config: Config = {
         "dark": "var(--bgDark)",
         "light": "var(--bgWhite)"
       },
+      height: {
+        "27": "27rem"
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,38 @@
+.infiniteScroll {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+    90deg, 
+    transparent, 
+    white 20%,
+    white 80%,
+    transparent
+    );
+    mask: linear-gradient(
+        90deg, 
+        transparent, 
+        white 40%,
+        white 60%,
+        transparent
+    );
+
+    max-width: 500px;
+}
+
+.infiniteScroll_inner {
+    animation: scrollAnimation 15s infinite linear;
+    width: max-content;
+}
+
+.infiniteScroll_inner li {
+    min-width: 6rem;
+}
+
+.infiniteScroll_inner li:hover {
+    scale: 1.05;
+}
+
+@keyframes scrollAnimation {
+    to {
+      transform: translateX(calc(-25% - 0.3rem));
+    }
+  }

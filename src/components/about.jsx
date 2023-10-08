@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <div className="
-        bg-about bg-cover bg-no-repeat relative text-white flex flex-col gap-4 text-center p-10 text-s
+        bg-about bg-cover bg-no-repeat relative text-white flex flex-1 flex-col gap-4 text-center p-10 text-s w-full md:h-27 h-80 justify-center bg-center
         after:block after:absolute after:inset-0 after:bg-black after:opacity-20
         ">
             <h2>Una muestra de mi trabajo</h2>
