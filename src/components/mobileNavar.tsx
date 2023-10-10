@@ -29,7 +29,6 @@ export default function MobileMenu() {
     useEffect(() => {
         isOpened ? document.body.classList.add("overflow-hidden") : document.body.classList?.remove("overflow-hidden");
 
-        console.log(isDisplayed)
     }, [isOpened])
 
     const animate = () => {

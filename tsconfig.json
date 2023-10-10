@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/tinyGallery.jsx", "src/components/header.jsx", "src/components/about.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/tinyGallery.jsx", "src/components/header.jsx", "src/components/about.jsx", "src/app/login/page.jsx", "src/app/api/login.js"],
   "exclude": ["node_modules"]
 }
