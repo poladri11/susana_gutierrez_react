@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+
+import {API_URL} from "@/app/constants/constants"
 
 export default function Login() {
-    
+    const router = useRouter()
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -30,9 +34,23 @@ export default function Login() {
         await axios({
             method: "POST",
             data: data,
-            url: "http://localhost:5173/user/login"
+            url: `${API_URL}/user/login`
         })
-        .then(response => console.log(response))
+        .then(response => {
+
+            switch (response.status) {
+                case 200:
+                    localStorage.setItem("JWT", response.data);
+                    router.push("/");
+                    break;
+                    
+                default:
+                    console.log("No")
+                    break;
+            }
+        })
+        .catch(error => {
+        })
 
     }
 

@@ -1,6 +1,10 @@
+"use client";
 import Link from "next/link"
+import { useAuth } from "@/context/AuthContext"
 
 export default function DesktopNavar() {
+
+    const { isAuth } = useAuth();
 
     const navarAnimation = "after:transition-all after:content-[''] after:bg-slate-50 after:block after:w-0 after:hover:w-full after:h-px after:hover:bg-slate-400"
 
@@ -28,6 +32,13 @@ export default function DesktopNavar() {
                         Contacto
                     </Link>
                 </li>
+                {isAuth &&
+                    <li>
+                        <Link href={"/admin"} className={navarAnimation}>
+                            Administración
+                        </Link>
+                    </li>
+                }
             </ul>
         </nav>
     )

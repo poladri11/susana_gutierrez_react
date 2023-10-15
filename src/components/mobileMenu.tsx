@@ -5,8 +5,12 @@ import { useState, useEffect } from "react"
 
 import { animated, useSpring } from "@react-spring/web"
 
+import { useAuth } from "@/context/AuthContext";
+
 export default function MobileMenu() {
     
+    const { isAuth } = useAuth();
+
     const [menuHolder, animationMenuHolder] = useSpring(() => ({
         from: { x: "100%" }
     }))
@@ -86,9 +90,9 @@ export default function MobileMenu() {
     }
 
     return (
-        <>
+        <> 
             <div 
-                className="flex flex-col gap-1 absolute right-5 top-1/2 -translate-y-1/2 md:hidden z-30 cursor-pointer"
+                className="flex flex-col gap-1 md:hidden z-30 cursor-pointer"
                 onClick={animate}
             >
                 <animated.span style={{
@@ -108,7 +112,8 @@ export default function MobileMenu() {
                 }}
                 className={`${!isDisplayed ? 'flex' : 'hidden'} bg-dark fixed z-20 w-screen top-0 left-0 bottom-0 flex-col items-center p-5 md:hidden`}
             >
-                <Link href={"/"} className="place-self-start">
+
+                <Link href={"/"} className=" justify-start self-start place-self-start">
                     <Image 
                         src="/images/logo/logo.webp"
                         width={150}
@@ -118,26 +123,33 @@ export default function MobileMenu() {
                 </Link>
                 <nav className="flex-1 text-white text-center grid place-items-center">
                     <ul className="flex flex-col gap-8 tracking-wider items-center">
-                        <animated.li className="border-b w-fit border-[#afafaf6b]">
+                        <li className="border-b w-fit border-[#afafaf6b]">
                             <Link onClick={animate} href={"/"}>
                                 Inicio
                             </Link>
-                        </animated.li>
-                        <animated.li className="border-b w-fit border-[#afafaf6b]">
+                        </li>
+                        <li className="border-b w-fit border-[#afafaf6b]">
                             <Link onClick={animate} href={"/galeria"}>
                                 Galería
                             </Link>
-                        </animated.li>
-                        <animated.li className="border-b w-fit border-[#afafaf6b]">
+                        </li>
+                        <li className="border-b w-fit border-[#afafaf6b]">
                             <Link onClick={animate} href={"/clases"}>
                                 Clases
                             </Link>
-                        </animated.li>
-                        <animated.li className="border-b w-fit border-[#afafaf6b]">
+                        </li>
+                        <li className="border-b w-fit border-[#afafaf6b]">
                             <Link onClick={animate} href={"/contacto"}>
                                 Contacto
                             </Link>
-                        </animated.li>
+                        </li>
+                        {isAuth &&
+                            <li className="border-b w-fit border-[#afafaf6b]">
+                                <Link onClick={animate} href={"/admin"}>
+                                    Administración
+                                </Link>
+                            </li>
+                        }
                     </ul>
                 </nav>
                 <div className="flex justify-between w-full">
